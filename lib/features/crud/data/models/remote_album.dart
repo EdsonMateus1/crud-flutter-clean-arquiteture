@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'package:clean_arquiteture/features/features/domain/entities/album.dart';
+import 'package:clean_arquiteture/features/crud/domain/entities/album.dart';
 
 class AlbumModel extends Album {
   final int userID;

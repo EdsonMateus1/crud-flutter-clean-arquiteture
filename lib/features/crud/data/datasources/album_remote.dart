@@ -1,4 +1,4 @@
-import 'package:clean_arquiteture/features/features/domain/entities/album.dart';
+import 'package:clean_arquiteture/features/crud/domain/entities/album.dart';
 
 abstract class IRemoteCreateAlbumsDataSource {
   Future<Album> createAlbum(Album album);

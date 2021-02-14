@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'features/features/data/repositories/get_album_repository_impl.dart';
-import 'features/features/domain/usecases/get_album.dart';
-import 'features/features/external/get_album_datasource.dart';
+import 'features/crud/data/repositories/get_album_repository_impl.dart';
+import 'features/crud/domain/usecases/get_album.dart';
+import 'features/crud/external/get_album_datasource.dart';
 
 void main() {
   runApp(MyApp());

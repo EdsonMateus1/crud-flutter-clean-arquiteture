@@ -1,7 +1,7 @@
 import 'package:clean_arquiteture/core/error/exception.dart';
-import 'package:clean_arquiteture/features/features/data/datasources/album_remote.dart';
-import 'package:clean_arquiteture/features/features/data/models/remote_album.dart';
-import 'package:clean_arquiteture/features/features/external/api/base_api.dart';
+import 'package:clean_arquiteture/features/crud/data/datasources/album_remote.dart';
+import 'package:clean_arquiteture/features/crud/data/models/remote_album.dart';
+import 'package:clean_arquiteture/features/crud/external/api/base_api.dart';
 import 'package:http/http.dart' as http;
 
 class AlbumRemoteGetDataSource implements IRemoteGetAlbumDataSource {
