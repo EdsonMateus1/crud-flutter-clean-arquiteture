@@ -1,3 +1,4 @@
+import 'package:clean_arquiteture/features/crud/domain/entities/album.dart';
 import 'package:flutter/material.dart';
 
 import 'features/crud/data/repositories/get_album_repository_impl.dart';
@@ -69,8 +70,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: FutureBuilder(
         future: userCase(1),
-        builder: (context, snapshot) {
-          return Text("${snapshot.data}");
+        builder: (context, AsyncSnapshot<Album> snapshot) {
+          if (snapshot.hasError) {
+            return Text("alguma coisa deu errado");
+          }
+          return Text("${snapshot.data.userId}");
         },
       ),
       floatingActionButton: FloatingActionButton(

@@ -8,7 +8,7 @@ class GetAlbumRepository implements IGetAlbumRepository {
   final IRemoteGetAlbumDataSource getAlbumDataSource;
   GetAlbumRepository(this.getAlbumDataSource);
   @override
-  Future<Either<Failure, Album>> getAlbum(int id) async {
-    return Right(await getAlbumDataSource.getAlbum(id));
+  Future<Album> getAlbum(int id) async {
+    return await getAlbumDataSource.getAlbum(id);
   }
 }

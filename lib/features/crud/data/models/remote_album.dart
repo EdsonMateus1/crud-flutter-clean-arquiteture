@@ -3,20 +3,20 @@ import 'package:flutter/foundation.dart';
 import 'package:clean_arquiteture/features/crud/domain/entities/album.dart';
 
 class AlbumModel extends Album {
-  final int userID;
+  final int userId;
   final int id;
   final String title;
 
-  AlbumModel({@required this.userID, @required this.id, @required this.title})
+  AlbumModel({@required this.userId, @required this.id, @required this.title})
       : super(
           id: id,
-          userID: userID,
+          userId: userId,
           title: title,
         );
 
   Map<String, dynamic> toMap() {
     return {
-      'userID': userID,
+      'userId': userId,
       'id': id,
       'title': title,
     };
@@ -26,7 +26,7 @@ class AlbumModel extends Album {
     if (map == null) return null;
 
     return AlbumModel(
-      userID: map['userID'],
+      userId: map['userId'],
       id: map['id'],
       title: map['title'],
     );
