@@ -14,9 +14,6 @@ class AlbumModel extends Album {
           title: title,
         );
 
-  @override
-  List<Object> get props => [userID, id, title];
-
   Map<String, dynamic> toMap() {
     return {
       'userID': userID,
