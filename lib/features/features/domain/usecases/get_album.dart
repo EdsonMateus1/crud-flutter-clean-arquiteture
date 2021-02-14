@@ -10,9 +10,8 @@ abstract class IGetAlbums {
 class GetAlbums implements IGetAlbums {
   final IGetAlbumRepository repository;
   GetAlbums(this.repository);
-
   @override
   Future<Either<Failure, Album>> call(int id) async {
-    return await repository.getAbums(id);
+    return await repository.getAlbum(id);
   }
 }

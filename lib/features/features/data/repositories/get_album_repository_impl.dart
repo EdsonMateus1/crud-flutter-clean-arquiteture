@@ -5,11 +5,10 @@ import 'package:clean_arquiteture/features/features/domain/repositories/get_albu
 import 'package:dartz/dartz.dart';
 
 class GetAlbumRepository implements IGetAlbumRepository {
-  final IAlbumRemoteGetAlbumsDataSource getAlbumsDataSource;
-  GetAlbumRepository(this.getAlbumsDataSource);
-
+  final IRemoteGetAlbumDataSource getAlbumDataSource;
+  GetAlbumRepository(this.getAlbumDataSource);
   @override
-  Future<Either<Failure, Album>> getAbums(int id) async {
-    return Right(await getAlbumsDataSource.getAbum(id));
+  Future<Either<Failure, Album>> getAlbum(int id) async {
+    return Right(await getAlbumDataSource.getAlbum(id));
   }
 }

@@ -1,14 +1,14 @@
 import 'package:clean_arquiteture/core/error/exception.dart';
 import 'package:clean_arquiteture/features/features/data/datasources/album_remote.dart';
 import 'package:clean_arquiteture/features/features/data/models/remote_album.dart';
+import 'package:clean_arquiteture/features/features/external/api/base_api.dart';
 import 'package:http/http.dart' as http;
 
-class AlbumRemoteGetDataSource implements IAlbumRemoteGetAlbumsDataSource {
+class AlbumRemoteGetDataSource implements IRemoteGetAlbumDataSource {
   @override
-  Future<AlbumModel> getAbum(int id) async {
+  Future<AlbumModel> getAlbum(int id) async {
     try {
-      final res =
-          await http.get("https://jsonplaceholder.typicode.com/albums/$id");
+      final res = await http.get("${BaseApi.BASE_URL}/albums/$id");
       if (res.statusCode == 200) {
         return AlbumModel.fromJson(res.body);
       } else {

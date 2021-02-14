@@ -5,11 +5,10 @@ import 'package:clean_arquiteture/features/features/domain/repositories/create_a
 import 'package:dartz/dartz.dart';
 
 class CreateAlbumRepository implements ICreateAlbumsepository {
-  final IAlbumRemoteCreateAlbumsDataSource createDataSource;
-
-  CreateAlbumRepository(this.createDataSource);
+  final IRemoteCreateAlbumsDataSource createAlbumDataSource;
+  CreateAlbumRepository(this.createAlbumDataSource);
   @override
   Future<Either<Failure, Album>> createAlbums(Album album) async {
-    return Right(await createDataSource.createAlbum(album));
+    return Right(await createAlbumDataSource.createAlbum(album));
   }
 }
