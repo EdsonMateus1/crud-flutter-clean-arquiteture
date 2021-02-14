@@ -8,7 +8,7 @@ abstract class IGetAlbums {
 }
 
 class GetAlbums implements IGetAlbums {
-  final GetAlbumRepository repository;
+  final IGetAlbumRepository repository;
   GetAlbums(this.repository);
 
   @override

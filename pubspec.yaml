@@ -26,7 +26,8 @@ dependencies:
   data_connection_checker: ^0.3.4
   equatable: ^1.2.6
   dartz: ^0.9.2
-  bloc: ^6.1.1  
+  bloc: ^6.1.1
+  http: ^0.12.2  
 
 
   # The following adds the Cupertino Icons font to your application.
