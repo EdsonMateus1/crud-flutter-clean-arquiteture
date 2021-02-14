@@ -16,10 +16,10 @@ class GetAlbums implements IGetAlbums {
       if (album != null) {
         return album;
       } else {
-        throw DomainException("GetAlbums album not exist");
+        throw DomainException("GetAlbum album not exist");
       }
     } catch (e) {
-      throw DomainException(e);
+      throw DomainException("GetAlbum album not exist error:$e");
     }
   }
 }

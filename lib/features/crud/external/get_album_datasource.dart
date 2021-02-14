@@ -8,7 +8,7 @@ class AlbumRemoteGetDataSource implements IRemoteGetAlbumDataSource {
   @override
   Future<AlbumModel> getAlbum(int id) async {
     try {
-      final res = await http.get("${BaseApi.BASE_URL}/lbums/$id");
+      final res = await http.get("${BaseApi.BASE_URL}/albums/$id");
       if (res.statusCode == 200) {
         return AlbumModel.fromJson(res.body);
       } else {

@@ -1,5 +1,5 @@
-class DomainException {
+class DomainException implements Exception {
   final Object e;
   DomainException(this.e);
-  Object get error => e;
+  List<Object> get props => [e];
 }
