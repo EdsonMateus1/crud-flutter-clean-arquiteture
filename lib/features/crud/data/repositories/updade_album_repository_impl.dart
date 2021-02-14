@@ -5,7 +5,7 @@ import 'package:clean_arquiteture/features/crud/domain/repositoriesInterface/upd
 import 'package:dartz/dartz.dart';
 
 class UpdadeAlbumRepository implements IUpdadeAlbumRepository {
-  final IRemoteUpdadeAlbumsDataSource updadeAlbumsDataSource;
+  final IRemoteUpdadeAlbumDataSource updadeAlbumsDataSource;
   UpdadeAlbumRepository(this.updadeAlbumsDataSource);
   @override
   Future<Either<Failure, Album>> updadeAlbum(Album album) async {

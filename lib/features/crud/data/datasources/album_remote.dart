@@ -4,7 +4,7 @@ abstract class IRemoteCreateAlbumsDataSource {
   Future<Album> createAlbum(Album album);
 }
 
-abstract class IRemoteUpdadeAlbumsDataSource {
+abstract class IRemoteUpdadeAlbumDataSource {
   Future<Album> updadeAlbum(Album album);
 }
 
@@ -14,4 +14,8 @@ abstract class IRemoteGetAlbumDataSource {
 
 abstract class IRemoteGetAlbumsDataSource {
   Future<List<Album>> getAlbums();
+}
+
+abstract class IRemoteDeleteAlbumDataSource {
+  Future<Album> deleteAlbum(int id);
 }
