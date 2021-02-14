@@ -67,19 +67,11 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+      body: FutureBuilder(
+        future: userCase(1),
+        builder: (context, snapshot) {
+          return Text("${snapshot.data}");
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {

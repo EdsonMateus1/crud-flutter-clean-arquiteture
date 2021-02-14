@@ -4,7 +4,7 @@ import 'package:clean_arquiteture/core/error/failure.dart';
 import 'package:clean_arquiteture/features/crud/domain/repositoriesInterface/create_album_repository.dart';
 import 'package:dartz/dartz.dart';
 
-class CreateAlbumRepository implements ICreateAlbumsepository {
+class CreateAlbumRepository implements ICreateAlbumrepository {
   final IRemoteCreateAlbumsDataSource createAlbumDataSource;
   CreateAlbumRepository(this.createAlbumDataSource);
   @override

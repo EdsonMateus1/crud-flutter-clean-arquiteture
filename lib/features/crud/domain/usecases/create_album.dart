@@ -9,7 +9,7 @@ abstract class ICreateAlbum {
 }
 
 class CreateAlbum implements ICreateAlbum {
-  final ICreateAlbumsepository repository;
+  final ICreateAlbumrepository repository;
   CreateAlbum({@required this.repository});
   @override
   Future<Either<Failure, Album>> call(Album album) async {
