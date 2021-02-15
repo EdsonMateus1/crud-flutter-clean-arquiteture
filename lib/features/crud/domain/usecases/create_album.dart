@@ -4,20 +4,23 @@ import 'package:clean_arquiteture/features/crud/domain/repositoriesInterface/cre
 import 'package:flutter/foundation.dart';
 
 abstract class ICreateAlbum {
-  Future<Album> call(Album album);
+  Future<Album> call(Album newAlbum);
 }
 
 class CreateAlbum implements ICreateAlbum {
   final ICreateAlbumrepository repository;
   CreateAlbum({@required this.repository});
   @override
-  Future<Album> call(Album album) async {
+  Future<Album> call(Album newAlbum) async {
     try {
-      final Album albumres = await repository.createAlbum(album);
-      if (albumres != null) {
-        return albumres;
+      if (newAlbum == null) {
+        throw DomainException("CreateAlbum Exception. NewAlbum not exist");
+      }
+      final Album album = await repository.createAlbum(newAlbum);
+      if (album != null) {
+        return album;
       } else {
-        throw DomainException("CreateAlbum Exception album not exist");
+        throw DomainException("CreateAlbum Exception. Album not exist");
       }
     } catch (e) {
       throw DomainException("CreateAlbum album Exception $e");

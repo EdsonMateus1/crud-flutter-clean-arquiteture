@@ -16,7 +16,7 @@ class AlbumRemoteGetDataSource implements IRemoteGetAlbumDataSource {
             "get album Exception status code ${res.statusCode}");
       }
     } catch (e) {
-      throw ServeException("get album Exception error $e");
+      throw ServeException("get album Exception $e");
     }
   }
 }

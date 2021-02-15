@@ -1,8 +1,11 @@
+import 'package:clean_arquiteture/features/crud/data/repositories/get_all_albums_repository_impl.dart';
 import 'package:clean_arquiteture/features/crud/domain/entities/album.dart';
+import 'package:clean_arquiteture/features/crud/external/get_all_album_datasource.dart';
 import 'package:flutter/material.dart';
 
 import 'features/crud/data/repositories/get_album_repository_impl.dart';
 import 'features/crud/domain/usecases/get_album.dart';
+import 'features/crud/domain/usecases/get_all_albums.dart';
 import 'features/crud/external/get_album_datasource.dart';
 
 void main() {
@@ -51,16 +54,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  final IGetAlbums userCase =
-      GetAlbums(GetAlbumRepository(AlbumRemoteGetDataSource()));
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  final IGetAllAlbums userCase = GetAllAlbums(
+    repository: GetAllAlbumsRepository(
+      getAlbumsDataSource: AlbumRemoteGetAllDataSource(),
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -69,17 +67,22 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: FutureBuilder(
-        future: userCase(1),
-        builder: (context, AsyncSnapshot<Album> snapshot) {
+        future: userCase(),
+        builder: (context, AsyncSnapshot<List<Album>> snapshot) {
           if (snapshot.hasError) {
             return Text("alguma coisa deu errado");
           }
-          return Text("${snapshot.data.userId}");
+          return ListView.builder(
+            itemCount: snapshot.data.length,
+            itemBuilder: (context, index) {
+              return Text("${snapshot.data[index].title}");
+            },
+          );
         },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          await userCase(1);
+          await userCase();
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
