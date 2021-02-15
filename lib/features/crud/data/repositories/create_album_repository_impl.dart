@@ -6,7 +6,7 @@ class CreateAlbumRepository implements ICreateAlbumrepository {
   final IRemoteCreateAlbumsDataSource createAlbumDataSource;
   CreateAlbumRepository(this.createAlbumDataSource);
   @override
-  Future<Album> createAlbums(Album album) async {
+  Future<Album> createAlbum(Album album) async {
     return await createAlbumDataSource.createAlbum(album);
   }
 }

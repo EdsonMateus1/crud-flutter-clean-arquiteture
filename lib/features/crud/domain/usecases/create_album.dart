@@ -1,4 +1,5 @@
 import 'package:clean_arquiteture/features/crud/domain/entities/album.dart';
+import 'package:clean_arquiteture/features/crud/domain/errors/domain_exception.dart';
 import 'package:clean_arquiteture/features/crud/domain/repositoriesInterface/create_album_repository.dart';
 import 'package:flutter/foundation.dart';
 
@@ -11,6 +12,15 @@ class CreateAlbum implements ICreateAlbum {
   CreateAlbum({@required this.repository});
   @override
   Future<Album> call(Album album) async {
-    return await repository.createAlbums(album);
+    try {
+      final Album albumres = await repository.createAlbum(album);
+      if (albumres != null) {
+        return albumres;
+      } else {
+        throw DomainException("CreateAlbum Exception album not exist");
+      }
+    } catch (e) {
+      throw DomainException("CreateAlbum album Exception $e");
+    }
   }
 }
