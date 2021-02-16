@@ -5,7 +5,7 @@ import 'package:clean_arquiteture/features/crud/data/models/remote_album.dart';
 import 'package:clean_arquiteture/features/crud/external/api/base_api.dart';
 import 'package:http/http.dart' as http;
 
-class AlbumRemoteGetAllDataSource implements IRemoteGetAlbumsDataSource {
+class AlbumRemoteGetAllDataSource implements IRemoteGetAllAlbumsDataSource {
   @override
   Future<List<AlbumModel>> getAlbums() async {
     try {

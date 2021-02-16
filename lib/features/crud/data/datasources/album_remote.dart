@@ -1,6 +1,6 @@
 import 'package:clean_arquiteture/features/crud/domain/entities/album.dart';
 
-abstract class IRemoteCreateAlbumsDataSource {
+abstract class IRemoteCreateAlbumDataSource {
   Future<Album> createAlbum(Album album);
 }
 
@@ -12,7 +12,7 @@ abstract class IRemoteGetAlbumDataSource {
   Future<Album> getAlbum(int id);
 }
 
-abstract class IRemoteGetAlbumsDataSource {
+abstract class IRemoteGetAllAlbumsDataSource {
   Future<List<Album>> getAlbums();
 }
 

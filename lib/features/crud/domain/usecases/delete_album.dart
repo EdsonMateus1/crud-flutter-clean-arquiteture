@@ -4,14 +4,14 @@ import 'package:clean_arquiteture/features/crud/domain/repositoriesInterface/del
 import 'package:flutter/foundation.dart';
 
 abstract class IDeleteAlbum {
-  Future<Album> deleteAlbum(int id);
+  Future<Album> call(int id);
 }
 
 class DeleteAlbum implements IDeleteAlbum {
   final IDeleteAlbumRepository repository;
   DeleteAlbum({@required this.repository});
   @override
-  Future<Album> deleteAlbum(int id) async {
+  Future<Album> call(int id) async {
     try {
       if (id == null) {
         throw DomainException("deleteAlbum Exception. id not exist");

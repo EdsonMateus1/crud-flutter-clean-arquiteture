@@ -8,7 +8,7 @@ abstract class IGetAllAlbums {
 }
 
 class GetAllAlbums implements IGetAllAlbums {
-  final IGetAllAlbumRepository repository;
+  final IGetAllAlbumsRepository repository;
   GetAllAlbums({@required this.repository});
   @override
   Future<List<Album>> call() async {

@@ -4,7 +4,7 @@ import 'package:clean_arquiteture/features/crud/domain/repositoriesInterface/cre
 import 'package:flutter/foundation.dart';
 
 class CreateAlbumRepository implements ICreateAlbumrepository {
-  final IRemoteCreateAlbumsDataSource createAlbumDataSource;
+  final IRemoteCreateAlbumDataSource createAlbumDataSource;
   CreateAlbumRepository({@required this.createAlbumDataSource});
   @override
   Future<Album> createAlbum(Album album) async {
