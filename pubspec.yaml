@@ -21,13 +21,15 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
   data_connection_checker: ^0.3.4
   equatable: ^1.2.6
   dartz: ^0.9.2
   bloc: ^6.1.1
-  http: ^0.12.2  
+  http: ^0.12.2
+  flutter_modular: ^2.0.1  
+  flutter:
+    sdk: flutter
+ 
 
 
   # The following adds the Cupertino Icons font to your application.
