@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<HomePage> {
-  final IGetAllAlbums userCase = Modular.get();
+  final IGetAllAlbums getAllAlbums = Modular.get();
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class _MyHomePageState extends State<HomePage> {
         title: Text("home"),
       ),
       body: FutureBuilder(
-        future: userCase(),
+        future: getAllAlbums(),
         builder: (context, AsyncSnapshot<List<Album>> snapshot) {
           if (snapshot.hasError) {
             return Text("alguma coisa deu errado");
@@ -36,7 +36,7 @@ class _MyHomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          await userCase();
+          await getAllAlbums();
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),

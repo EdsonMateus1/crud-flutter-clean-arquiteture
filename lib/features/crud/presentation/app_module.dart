@@ -22,10 +22,8 @@ class AppModule extends MainModule {
       ];
 
   @override
-  // TODO: implement bootstrap
   Widget get bootstrap => AppWidget();
 
   @override
-  // TODO: implement routers
   List<ModularRouter> get routers => [];
 }
