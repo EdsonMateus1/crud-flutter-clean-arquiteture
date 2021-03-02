@@ -1,4 +1,5 @@
 import 'package:clean_arquiteture/features/crud/domain/entities/album.dart';
+import 'package:clean_arquiteture/features/crud/domain/usecases/get_album.dart';
 import 'package:clean_arquiteture/features/crud/domain/usecases/get_all_albums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -10,7 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<HomePage> {
-  final IGetAllAlbums getAllAlbums = Modular.get();
+  final IGetAllAlbums _getAllAlbums = Modular.get<IGetAllAlbums>();
+  final IGetAlbum _getAlbum = Modular.get<IGetAlbum>();
 
   @override
   Widget build(BuildContext context) {
@@ -19,24 +21,19 @@ class _MyHomePageState extends State<HomePage> {
         title: Text("home"),
       ),
       body: FutureBuilder(
-        future: getAllAlbums(),
-        builder: (context, AsyncSnapshot<List<Album>> snapshot) {
+        future: _getAlbum(1),
+        builder: (context, AsyncSnapshot<Album> snapshot) {
           if (snapshot.hasError) {
             return Text("alguma coisa deu errado");
           } else if (!snapshot.hasData) {
             return CircularProgressIndicator();
           }
-          return ListView.builder(
-            itemCount: snapshot.data.length,
-            itemBuilder: (context, index) {
-              return Text("${snapshot.data[index].title}");
-            },
-          );
+          return Text("${snapshot.data.title}");
         },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          await getAllAlbums();
+          await _getAllAlbums();
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
